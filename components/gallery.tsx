@@ -1,0 +1,172 @@
+'use client';
+
+import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
+import { X } from 'lucide-react';
+
+export default function Gallery() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  const galleryImages = [
+    {
+      src: '/gym-equipment.jpg',
+      alt: 'State-of-the-art equipment',
+      title: 'Premium Equipment',
+    },
+    {
+      src: '/hero-gym.jpg',
+      alt: 'Group training session',
+      title: 'Group Classes',
+    },
+    {
+      src: '/trainer-professional.jpg',
+      alt: 'Personal training',
+      title: 'Personal Training',
+    },
+    {
+      src: '/transformation.jpg',
+      alt: 'Member transformation',
+      title: 'Success Stories',
+    },
+    {
+      src: '/gym-equipment.jpg',
+      alt: 'Strength training area',
+      title: 'Weight Room',
+    },
+    {
+      src: '/hero-gym.jpg',
+      alt: 'Cardio section',
+      title: 'Cardio Area',
+    },
+  ];
+
+  return (
+    <section id="gallery" className="py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div
+          ref={ref}
+          className={`text-center mb-16 transition-all duration-1000 ${
+            isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+            Facility <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Gallery</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Explore our state-of-the-art facility and transformation stories
+          </p>
+        </div>
+
+        {/* Gallery Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {galleryImages.map((image, index) => (
+            <div
+              key={index}
+              className={`relative h-64 md:h-72 rounded-lg overflow-hidden group cursor-pointer ${
+                isVisible ? 'animate-fade-in-up' : 'opacity-0'
+              }`}
+              style={{
+                animationDelay: isVisible ? `${index * 80}ms` : '0ms',
+              }}
+              onClick={() => setSelectedImage(index)}
+            >
+              <Image
+                src={image.src || "/placeholder.svg"}
+                alt={image.alt}
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <h3 className="text-white font-bold text-lg">{image.title}</h3>
+              </div>
+
+              {/* Hover Icon */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="bg-primary w-12 h-12 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6 text-primary-foreground" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Light Box */}
+      {selectedImage !== null && (
+        <div
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 animate-fade-in-up"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white hover:text-primary transition-colors"
+            onClick={() => setSelectedImage(null)}
+          >
+            <X size={32} />
+          </button>
+
+          <div className="relative w-full h-full max-w-4xl flex items-center justify-center">
+            <Image
+              src={galleryImages[selectedImage].src || "/placeholder.svg"}
+              alt={galleryImages[selectedImage].alt}
+              fill
+              className="object-contain"
+            />
+          </div>
+
+          {/* Navigation */}
+          <button
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-primary hover:bg-primary/80 text-primary-foreground p-2 rounded-full transition-colors"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedImage((prev) =>
+                prev === 0 ? galleryImages.length - 1 : prev! - 1
+              );
+            }}
+          >
+            {'<'}
+          </button>
+
+          <button
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-primary hover:bg-primary/80 text-primary-foreground p-2 rounded-full transition-colors"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedImage((prev) =>
+                prev === galleryImages.length - 1 ? 0 : prev! + 1
+              );
+            }}
+          >
+            {'>'}
+          </button>
+        </div>
+      )}
+    </section>
+  );
+}
