@@ -17,7 +17,6 @@ export default function Home() {
       <About />
       <Services />
       <Contest />
-      <Trainers />
       <Pricing />
       <Gallery />
       <Contact />

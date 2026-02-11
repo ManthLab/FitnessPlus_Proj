@@ -59,7 +59,7 @@ export default function Footer() {
             <div className="flex gap-4">
               {[
                 { icon: Facebook, href: '#' },
-                { icon: Instagram, href: '#' },
+                { icon: Instagram, href: '#'},
                 { icon: Twitter, href: '#' },
                 { icon: Youtube, href: '#' },
               ].map((social, index) => (

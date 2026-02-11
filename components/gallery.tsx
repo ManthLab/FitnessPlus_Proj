@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
-import { X } from 'lucide-react';
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { X } from "lucide-react";
 
 export default function Gallery() {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,7 +16,7 @@ export default function Gallery() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (ref.current) {
@@ -30,36 +30,60 @@ export default function Gallery() {
     };
   }, []);
 
-  const galleryImages = [
+  const galleryMedia = [
     {
-      src: '/gym-equipment.jpg',
-      alt: 'State-of-the-art equipment',
-      title: 'Premium Equipment',
+      type: "video",
+      src: "/Gym_edited - Trim.mp4",
+      alt: "State-of-the-art equipment",
+      title: "Premium Equipment",
     },
     {
-      src: '/hero-gym.jpg',
-      alt: 'Group training session',
-      title: 'Group Classes',
+      type: "image",
+      src: "/Collage_2.png",
+      alt: "Group training session",
+      title: "Success Stories",
     },
     {
-      src: '/trainer-professional.jpg',
-      alt: 'Personal training',
-      title: 'Personal Training',
+      type: "image",
+      src: "/Collage_3.png",
+      alt: "Group training session",
+      title: "Success Stories",
     },
     {
-      src: '/transformation.jpg',
-      alt: 'Member transformation',
-      title: 'Success Stories',
+      type: "image",
+      src: "/trainer-professional.jpg",
+      alt: "Personal training",
+      title: "Personal Training",
     },
     {
-      src: '/gym-equipment.jpg',
-      alt: 'Strength training area',
-      title: 'Weight Room',
+      type: "image",
+      src: "/Leg_press.jpeg",
+      alt: "Member transformation",
+      title: "Success Stories",
     },
     {
-      src: '/hero-gym.jpg',
-      alt: 'Cardio section',
-      title: 'Cardio Area',
+      type: "video",
+      src: "/Dumbell_Rack_2 - .mp4",
+      alt: "Strength training area",
+      title: "Weight Room",
+    },
+    {
+      type: "video",
+      src: "/Cardio_audio.mp4",
+      alt: "Cardio section",
+      title: "Cardio Area",
+    },
+    {
+      type: "video",
+      src: "/Lucky_Draw.mp4",
+      alt: "Lucky Draw",
+      title: "Lucky Draw",
+    },
+    {
+      type: "video",
+      src: "/Cricket.mp4",
+      alt: "Sports Event",
+      title: "Sports Day",
     },
   ];
 
@@ -70,11 +94,14 @@ export default function Gallery() {
         <div
           ref={ref}
           className={`text-center mb-16 transition-all duration-1000 ${
-            isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-10'
+            isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
           }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Facility <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Gallery</span>
+            Facility{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+              Gallery
+            </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Explore our state-of-the-art facility and transformation stories
@@ -83,33 +110,49 @@ export default function Gallery() {
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {galleryImages.map((image, index) => (
+          {galleryMedia.map((item, index) => (
             <div
               key={index}
               className={`relative h-64 md:h-72 rounded-lg overflow-hidden group cursor-pointer ${
-                isVisible ? 'animate-fade-in-up' : 'opacity-0'
+                isVisible ? "animate-fade-in-up" : "opacity-0"
               }`}
               style={{
-                animationDelay: isVisible ? `${index * 80}ms` : '0ms',
+                animationDelay: isVisible ? `${index * 80}ms` : "0ms",
               }}
               onClick={() => setSelectedImage(index)}
             >
-              <Image
-                src={image.src || "/placeholder.svg"}
-                alt={image.alt}
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-300"
-              />
+              {item.type === "image" ? (
+                <Image
+                  src={item.src || "/placeholder.svg"}
+                  alt={item.alt}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+              ) : (
+                <video
+                  src={item.src}
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  onMouseEnter={(e) => e.currentTarget.play()}
+                  onMouseLeave={(e) => e.currentTarget.pause()}
+                />
+              )}
 
               {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <h3 className="text-white font-bold text-lg">{image.title}</h3>
+                <h3 className="text-white font-bold text-lg">{item.title}</h3>
               </div>
 
               {/* Hover Icon */}
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="bg-primary w-12 h-12 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6 text-primary-foreground" fill="currentColor" viewBox="0 0 24 24">
+                  <svg
+                    className="w-6 h-6 text-primary-foreground"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
@@ -133,12 +176,21 @@ export default function Gallery() {
           </button>
 
           <div className="relative w-full h-full max-w-4xl flex items-center justify-center">
-            <Image
-              src={galleryImages[selectedImage].src || "/placeholder.svg"}
-              alt={galleryImages[selectedImage].alt}
-              fill
-              className="object-contain"
-            />
+            {galleryMedia[selectedImage].type === "image" ? (
+              <Image
+                src={galleryMedia[selectedImage].src || "/placeholder.svg"}
+                alt={galleryMedia[selectedImage].alt}
+                fill
+                className="object-contain"
+              />
+            ) : (
+              <video
+                src={galleryMedia[selectedImage].src}
+                controls
+                autoPlay
+                className="max-h-full max-w-full"
+              />
+            )}
           </div>
 
           {/* Navigation */}
@@ -147,11 +199,11 @@ export default function Gallery() {
             onClick={(e) => {
               e.stopPropagation();
               setSelectedImage((prev) =>
-                prev === 0 ? galleryImages.length - 1 : prev! - 1
+                prev === 0 ? galleryMedia.length - 1 : prev! - 1,
               );
             }}
           >
-            {'<'}
+            {"<"}
           </button>
 
           <button
@@ -159,11 +211,11 @@ export default function Gallery() {
             onClick={(e) => {
               e.stopPropagation();
               setSelectedImage((prev) =>
-                prev === galleryImages.length - 1 ? 0 : prev! + 1
+                prev === galleryMedia.length - 1 ? 0 : prev! + 1,
               );
             }}
           >
-            {'>'}
+            {">"}
           </button>
         </div>
       )}

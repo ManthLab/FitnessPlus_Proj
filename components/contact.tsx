@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import React from "react"
+import React from "react";
 
-import { useEffect, useRef, useState } from 'react';
-import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { useEffect, useRef, useState } from "react";
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 
 export default function Contact() {
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
   const ref = useRef(null);
 
@@ -21,7 +21,7 @@ export default function Contact() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (ref.current) {
@@ -38,34 +38,35 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
-    console.log('Form submitted:', formData);
-    setFormData({ name: '', email: '', message: '' });
+    console.log("Form submitted:", formData);
+    setFormData({ name: "", email: "", message: "" });
   };
 
   const contactInfo = [
     {
       icon: Phone,
-      title: 'Phone',
-      content: '+91 8286173387',
-      href: 'tel:+918286173387',
+      title: "Phone",
+      content: "+91 8286173387",
+      href: "tel:+918286173387",
     },
     {
       icon: Mail,
-      title: 'Email',
-      content: 'info@fitnessplus.com',
-      href: 'mailto:info@fitnessplus.com',
+      title: "Email",
+      content: "info@fitnessplus.com",
+      href: "mailto:info@fitnessplus.com",
     },
     {
       icon: MapPin,
-      title: 'Location',
-      content: 'Sai Tirtha Apartment, Near Samrath Chouk, Thakurwadi, Dombivli West',
-      href: '#',
+      title: "Location",
+      content:
+        "Sai Tirtha Apartment, Near Samrath Chouk, Thakurwadi, Dombivli West",
+      href: "#",
     },
     {
       icon: MessageCircle,
-      title: 'WhatsApp',
-      content: '+91 8286173387',
-      href: 'https://wa.me/918286173387',
+      title: "WhatsApp",
+      content: "+91 8286173387",
+      href: "https://wa.me/918286173387",
     },
   ];
 
@@ -76,14 +77,18 @@ export default function Contact() {
         <div
           ref={ref}
           className={`text-center mb-16 transition-all duration-1000 ${
-            isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-10'
+            isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-10"
           }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Touch</span>
+            Get In{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+              Touch
+            </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have questions? We&apos;d love to hear from you. Reach out using any of the methods below.
+            Have questions? We&apos;d love to hear from you. Reach out using any
+            of the methods below.
           </p>
         </div>
 
@@ -91,7 +96,7 @@ export default function Contact() {
           {/* Contact Info */}
           <div
             className={`space-y-6 transition-all duration-1000 ${
-              isVisible ? 'animate-fade-in-left' : 'opacity-0'
+              isVisible ? "animate-fade-in-left" : "opacity-0"
             }`}
           >
             {contactInfo.map((info, index) => (
@@ -104,7 +109,9 @@ export default function Contact() {
                   <info.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-1">{info.title}</h3>
+                  <h3 className="font-bold text-foreground mb-1">
+                    {info.title}
+                  </h3>
                   <p className="text-muted-foreground">{info.content}</p>
                 </div>
               </a>
@@ -113,7 +120,8 @@ export default function Contact() {
             {/* Map Placeholder */}
             <div className="w-full h-64 bg-background border border-border rounded-lg overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290255!2d-74.0060!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQyJzQ2LjAiTiA3NMKwMDAnMjEuNiJX!5e0!3m2!1sen!2sus!4v1234567890"
+                title="Fitness Plus Gym Location - Dombivli West"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.382245283773!2d73.07821357525401!3d19.22216588201276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7bf1d1a8bd391%3A0x382eedde61647b6b!2sFit%20Plus%20gym!5e0!3m2!1sen!2sin!4v1770101371258!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -127,12 +135,17 @@ export default function Contact() {
           {/* Contact Form */}
           <div
             className={`transition-all duration-1000 ${
-              isVisible ? 'animate-fade-in-right' : 'opacity-0'
+              isVisible ? "animate-fade-in-right" : "opacity-0"
             }`}
           >
-            <form onSubmit={handleSubmit} className="space-y-6 bg-background border border-border rounded-lg p-8">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-6 bg-background border border-border rounded-lg p-8"
+            >
               <div>
-                <label className="block text-foreground font-semibold mb-2">Name</label>
+                <label className="block text-foreground font-semibold mb-2">
+                  Name
+                </label>
                 <input
                   type="text"
                   required
@@ -146,7 +159,9 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-foreground font-semibold mb-2">Email</label>
+                <label className="block text-foreground font-semibold mb-2">
+                  Email
+                </label>
                 <input
                   type="email"
                   required
@@ -160,7 +175,9 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-foreground font-semibold mb-2">Message</label>
+                <label className="block text-foreground font-semibold mb-2">
+                  Message
+                </label>
                 <textarea
                   required
                   rows={4}
@@ -181,7 +198,9 @@ export default function Contact() {
               </button>
 
               <div className="pt-4 border-t border-border">
-                <p className="text-center text-muted-foreground mb-4">Or reach us on WhatsApp</p>
+                <p className="text-center text-muted-foreground mb-4">
+                  Or reach us on WhatsApp
+                </p>
                 <a
                   href="https://wa.me/918286173387"
                   target="_blank"

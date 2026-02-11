@@ -47,7 +47,8 @@ export default function About() {
           {/* Image */}
           <div className="relative h-96 md:h-[500px]">
             <Image
-              src="/gym-equipment.jpg"
+              src="/Photo_wall.jpeg"
+              //src="/gym-equipment.jpg"
               alt="Fitness Plus Facility"
               fill
               className="object-cover rounded-xl"

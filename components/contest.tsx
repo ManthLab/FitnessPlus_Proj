@@ -71,7 +71,8 @@ export default function Contest() {
           >
             <div className="relative h-96 rounded-xl overflow-hidden border-2 border-primary/30 shadow-2xl shadow-primary/20">
               <Image
-                src="/fitness-contest.jpg"
+                src="/Group_photo_2.jpeg"
+                //src="/fitness-contest.jpg"
                 alt="Weekly Fitness Contest"
                 fill
                 className="object-cover"
