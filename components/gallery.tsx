@@ -50,10 +50,10 @@ export default function Gallery() {
       title: "Success Stories",
     },
     {
-      type: "image",
-      src: "/trainer-professional.jpg",
-      alt: "Personal training",
-      title: "Personal Training",
+      type: "video",
+      src: "/Trainers_edited.mp4",
+      alt: "Strength training area",
+      title: "Weight Room",
     },
     {
       type: "image",

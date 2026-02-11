@@ -172,7 +172,7 @@ export default function Pricing() {
               const element = document.getElementById('contact');
               element?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-lg transition-all duration-300 hover:scale-105"
+            className="cursor-pointer px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-lg transition-all duration-300 hover:scale-105"
           >
             Enroll Now
           </button>

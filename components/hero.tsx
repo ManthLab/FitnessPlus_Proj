@@ -36,7 +36,7 @@ export default function Hero() {
               const element = document.getElementById('contact');
               element?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/50 transform hover:scale-105"
+            className="cursor-pointer px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/50 transform hover:scale-105"
           >
             Start Free Trial
           </button>
@@ -45,7 +45,7 @@ export default function Hero() {
               const element = document.getElementById('pricing');
               element?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="px-8 py-3 border-2 border-primary text-primary hover:bg-primary/10 rounded-lg font-bold text-lg transition-all duration-300"
+            className="cursor-pointer px-8 py-3 border-2 border-primary text-primary hover:bg-primary/10 rounded-lg font-bold text-lg transition-all duration-300"
           >
             View Plans
           </button>

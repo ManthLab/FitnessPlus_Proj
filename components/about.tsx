@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { Dumbbell, Users, Zap } from 'lucide-react';
+import { BadgeCheck, Dumbbell, Layers, UserCheck, Users, Zap } from 'lucide-react';
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false);
@@ -30,9 +30,9 @@ export default function About() {
   }, []);
 
   const stats = [
-    { icon: Users, label: 'Active Members', value: '5000+' },
-    { icon: Dumbbell, label: 'Equipment Pieces', value: '200+' },
-    { icon: Zap, label: 'Success Rate', value: '95%' },
+    { icon: UserCheck, label: 'Active Members', value: '5000+' },
+    { icon: Layers, label: 'Equipment Pieces', value: '200+' },
+    { icon: BadgeCheck, label: 'Success Rate', value: '95%' },
   ];
 
   return (

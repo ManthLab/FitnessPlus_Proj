@@ -130,7 +130,7 @@ export default function Contest() {
                 const element = document.getElementById('contact');
                 element?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="px-8 py-4 bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:shadow-primary/50 text-primary-foreground font-bold rounded-lg transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+              className="cursor-pointer px-8 py-4 bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:shadow-primary/50 text-primary-foreground font-bold rounded-lg transition-all duration-300 hover:scale-105 w-full sm:w-auto"
             >
               Participate Now
             </button>

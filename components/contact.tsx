@@ -60,7 +60,6 @@ export default function Contact() {
       title: "Location",
       content:
         "Sai Tirtha Apartment, Near Samrath Chouk, Thakurwadi, Dombivli West",
-      href: "#",
     },
     {
       icon: MessageCircle,

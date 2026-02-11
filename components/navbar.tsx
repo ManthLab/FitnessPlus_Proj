@@ -54,7 +54,7 @@ export default function Navbar() {
             ))}
             <button 
               onClick={handleJoinClick}
-              className="px-6 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-primary/50"
+              className="cursor-pointer px-6 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-primary/50"
             >
               Join Now
             </button>

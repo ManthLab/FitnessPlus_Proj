@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Heart, Users, Zap, TrendingUp, Shield, Music } from 'lucide-react';
+import { Heart, Users, Zap, TrendingUp, Shield, Music, DumbbellIcon, Apple, Activity, Target, Move, RefreshCcw, UserCheck, Salad, Handshake } from 'lucide-react';
 
 export default function Services() {
   const [isVisible, setIsVisible] = useState(false);
@@ -30,7 +30,7 @@ export default function Services() {
 
   const services = [
     {
-      icon: Heart,
+      icon: Handshake,
       title: 'Personal Training',
       description: 'One-on-one sessions tailored to your goals with certified trainers',
     },
@@ -40,17 +40,17 @@ export default function Services() {
       description: 'Dynamic group fitness classes including HIIT, Yoga, and Boxing',
     },
     {
-      icon: Zap,
+      icon: DumbbellIcon,
       title: 'Strength Training',
       description: 'Complete strength and conditioning programs for all levels',
     },
     {
-      icon: TrendingUp,
+      icon: Salad,
       title: 'Nutrition Guidance',
       description: 'Expert nutritional coaching to complement your training',
     },
     {
-      icon: Shield,
+      icon: Activity,
       title: 'Cardio Programs',
       description: 'Advanced cardio training with state-of-the-art equipment',
     },
@@ -58,6 +58,21 @@ export default function Services() {
       icon: Music,
       title: 'Mind & Body',
       description: 'Holistic wellness including meditation and recovery sessions',
+    },
+    {
+      icon: Target,
+      title: 'Functional Training',
+      description: 'Real-world movement training to improve strength, balance, coordination, and performance',
+    },
+    {
+      icon: Move,
+      title: 'Flexibility & Mobility',
+      description: 'Targeted stretching and mobility exercises to enhance movement and reduce injury risk',
+    },
+    {
+      icon: RefreshCcw,
+      title: 'Body Transformation Programs',
+      description: 'Structured training plans focused on fat loss, muscle gain, and measurable results',
     },
   ];
 
