@@ -4,9 +4,10 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 
-export default function Gallery() {
+export default function Gall() {
   const [isVisible, setIsVisible] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const ref = useRef(null);
 
   useEffect(() => {
@@ -38,8 +39,21 @@ export default function Gallery() {
       title: "Premium Equipment",
     },
     {
+      title: "Transformations",
+      media: [
+        { type: "image", src: "/1_crop_Transform.jpeg", alt: "Transform_1" },
+        { type: "image", src: "/2_crop_Transform.jpeg", alt: "Transform_2" },
+      ],
+    },
+    {
       type: "image",
       src: "/Collage_2.png",
+      alt: "Group training session",
+      title: "Success Stories",
+    },
+    {
+      type: "image",
+      src: "/Collage_3.png",
       alt: "Group training session",
       title: "Success Stories",
     },
@@ -60,12 +74,6 @@ export default function Gallery() {
       src: "/Dumbell_Rack_2 - .mp4",
       alt: "Strength training area",
       title: "Weight Room",
-    },
-    {
-      type: "image",
-      src: "/Analysis_Report.jpg",
-      alt: "Body Analytics & Report",
-      title: "Body Composition Analysis Report",
     },
     {
       type: "video",
@@ -119,7 +127,9 @@ export default function Gallery() {
               style={{
                 animationDelay: isVisible ? `${index * 80}ms` : "0ms",
               }}
-              onClick={() => setSelectedImage(index)}
+              onClick={() => {
+                setSelectedCategory(index);
+              }}
             >
               {item.type === "image" ? (
                 <Image
@@ -163,29 +173,32 @@ export default function Gallery() {
       </div>
 
       {/* Light Box */}
-      {selectedImage !== null && (
+      {selectedCategory !== null && (
         <div
           className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 animate-fade-in-up"
-          onClick={() => setSelectedImage(null)}
+          onClick={() => setSelectedCategory(null)}
         >
           <button
             className="absolute top-4 right-4 text-white hover:text-primary transition-colors"
-            onClick={() => setSelectedImage(null)}
+            onClick={() => setSelectedCategory(null)}
           >
             <X size={32} />
           </button>
 
-          <div className="relative w-full h-full max-w-4xl flex items-center justify-center">
-            {galleryMedia[selectedImage].type === "image" ? (
+          <div
+            className="relative w-full h-full max-w-4xl flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {galleryMedia[selectedCategory].type === "image" ? (
               <Image
-                src={galleryMedia[selectedImage].src || "/placeholder.svg"}
-                alt={galleryMedia[selectedImage].alt}
+                src={galleryMedia[selectedCategory].src || "/placeholder.svg"}
+                alt={galleryMedia[selectedCategory].alt}
                 fill
                 className="object-contain"
               />
             ) : (
               <video
-                src={galleryMedia[selectedImage].src}
+                src={galleryMedia[selectedCategory].src}
                 controls
                 autoPlay
                 className="max-h-full max-w-full"
@@ -198,8 +211,15 @@ export default function Gallery() {
             className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-primary hover:bg-primary/80 text-primary-foreground p-2 rounded-full transition-colors"
             onClick={(e) => {
               e.stopPropagation();
-              setSelectedImage((prev) =>
-                prev === 0 ? galleryMedia.length - 1 : prev! - 1,
+
+              if (selectedCategory === null) return;
+
+              setSelectedCategory((prev) =>
+                prev === null
+                  ? null
+                  : prev === 0
+                    ? galleryMedia.length - 1
+                    : prev - 1,
               );
             }}
           >
@@ -210,8 +230,12 @@ export default function Gallery() {
             className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-primary hover:bg-primary/80 text-primary-foreground p-2 rounded-full transition-colors"
             onClick={(e) => {
               e.stopPropagation();
-              setSelectedImage((prev) =>
-                prev === galleryMedia.length - 1 ? 0 : prev! + 1,
+              setSelectedCategory((prev) =>
+                prev === null
+                  ? null
+                  : prev === galleryMedia.length - 1
+                    ? 0
+                    : prev + 1,
               );
             }}
           >

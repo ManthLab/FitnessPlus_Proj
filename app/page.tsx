@@ -8,6 +8,7 @@ import Pricing from '@/components/pricing';
 import Gallery from '@/components/gallery';
 import Contact from '@/components/contact';
 import Footer from '@/components/footer';
+import Gall from '@/components/gallery2';
 
 export default function Home() {
   return (

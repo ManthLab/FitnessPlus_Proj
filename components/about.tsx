@@ -30,9 +30,9 @@ export default function About() {
   }, []);
 
   const stats = [
-    { icon: UserCheck, label: 'Active Members', value: '5000+' },
+    { icon: UserCheck, label: 'Active Members', value: '1500+' },
     { icon: Layers, label: 'Equipment Pieces', value: '200+' },
-    { icon: BadgeCheck, label: 'Success Rate', value: '95%' },
+    { icon: BadgeCheck, label: 'Success Rate', value: '90%' },
   ];
 
   return (
@@ -63,7 +63,7 @@ export default function About() {
             </h2>
 
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Founded in 2015, Fitness Plus has been a beacon of fitness excellence in the community. We&apos;re dedicated to helping individuals achieve their fitness goals through personalized training programs, world-class equipment, and unwavering support.
+              Founded in 2021, Fitness Plus has been a beacon of fitness excellence in the community. We&apos;re dedicated to helping individuals achieve their fitness goals through personalized training programs, world-class equipment, and unwavering support.
             </p>
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">

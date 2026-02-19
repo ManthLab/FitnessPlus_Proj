@@ -52,14 +52,14 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email",
-      content: "info@fitnessplus.com",
-      href: "mailto:info@fitnessplus.com",
+      content: "fitplus2912@gmail.com",
+      href: "mailto:fitplus2912@gmail.com",
     },
     {
       icon: MapPin,
       title: "Location",
       content:
-        "Sai Tirtha Apartment, Near Samrath Chouk, Thakurwadi, Dombivli West",
+        "Sai Tirtha Apartment, Near Samrat Chawk, Thakurwadi, Dombivli West",
     },
     {
       icon: MessageCircle,

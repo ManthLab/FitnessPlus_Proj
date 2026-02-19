@@ -58,9 +58,7 @@ export default function Footer() {
             <h4 className="font-bold text-foreground mb-4">Follow Us</h4>
             <div className="flex gap-4">
               {[
-                { icon: Facebook, href: '#' },
-                { icon: Instagram, href: '#'},
-                { icon: Twitter, href: '#' },
+                { icon: Instagram, href: 'https://www.instagram.com/fitnessplus_west_branch?igsh=M3Q1dXR3M3FoMzBu'},
                 { icon: Youtube, href: '#' },
               ].map((social, index) => (
                 <a

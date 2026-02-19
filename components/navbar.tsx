@@ -1,31 +1,31 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { useState } from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Contest', href: '#contest' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Contact', href: '#contact' },
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Pricing", href: "#pricing" },
+    { name: "Contest", href: "#contest" },
+    { name: "Gallery", href: "#gallery" },
+    { name: "Contact", href: "#contact" },
   ];
 
   const handlePricingClick = () => {
-    const element = document.getElementById('pricing');
-    element?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById("pricing");
+    element?.scrollIntoView({ behavior: "smooth" });
     setIsOpen(false);
   };
 
   const handleJoinClick = () => {
-    const element = document.getElementById('pricing');
-    element?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById("pricing");
+    element?.scrollIntoView({ behavior: "smooth" });
     setIsOpen(false);
   };
 
@@ -34,12 +34,55 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="#home" className="flex-shrink-0 flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
-          <span className="text-sm text-muted-foreground hidden sm:inline">FITNESS</span>
+          {/* <span className="flex-shrink-0 flex items-center gap-2 hover:opacity-80 transition-opacity">
+           <img
+              src="/White_Logo.JPG.png"
+              alt="Fitness Plus Logo"
+              className="h-10 w-auto sm:h-14"
+            />
+          <span className="text-sm text-muted-foreground">FITNESS</span>
             <div className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               PLUS
             </div>
-          </Link>
+          </span>  */}
+
+          {/* <span className="flex-shrink-0 flex items-center gap-3 hover:opacity-80 transition-opacity">
+            
+            <img
+              src="/White_Logo.JPG.png"
+              alt="Fitness Plus Logo"
+              className="h-10 w-auto sm:h-14"
+            />
+
+            
+            <div className="flex flex-col leading-tight">
+              <span className="text-xs sm:text-sm text-muted-foreground tracking-wider">
+                FITNESS
+              </span>
+              <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                PLUS
+              </span>
+            </div>
+          </span> */}
+
+          <div className="flex items-center gap-4">
+            {/* Standalone Logo */}
+            <img
+              src="/White_Logo.JPG.png"
+              alt="Fitness Plus Logo"
+              className="h-14 w-auto sm:h-16 md:h-18 object-contain"
+            />
+
+            {/* Brand Name */}
+            <div className="flex flex-col leading-tight">
+              <span className="text-xs sm:text-sm tracking-widest text-gray-400">
+                FITNESS
+              </span>
+              <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                PLUS
+              </span>
+            </div>
+          </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
@@ -52,7 +95,7 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-            <button 
+            <button
               onClick={handleJoinClick}
               className="cursor-pointer px-6 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-primary/50"
             >
@@ -82,7 +125,7 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
-            <button 
+            <button
               onClick={handleJoinClick}
               className="w-full px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg font-semibold transition-all duration-300"
             >
