@@ -1,3 +1,5 @@
+
+
 "use client";
 
 import React from "react";
@@ -35,13 +37,33 @@ export default function Contact() {
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", message: "" });
-  };
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
+  console.log("Sending form data:", formData);
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      alert("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
+    } else {
+      alert("Failed to send message.");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Something went wrong.");
+  }
+};
   const contactInfo = [
     {
       icon: Phone,

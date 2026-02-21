@@ -32,8 +32,8 @@ export default function Contest() {
   const features = [
     {
       icon: TrendingUp,
-      title: 'Weekly Leaderboard',
-      description: 'Compete with members and climb the rankings',
+      title: 'Fitness Challenges',
+      description: 'Compete with members and push your limits together',
     },
     {
       icon: Award,
@@ -71,11 +71,11 @@ export default function Contest() {
           >
             <div className="relative h-96 rounded-xl overflow-hidden border-2 border-primary/30 shadow-2xl shadow-primary/20">
               <Image
-                src="/Group_photo_2.jpeg"
+                src="/Fitness_Challenge.jpeg"
                 //src="/fitness-contest.jpg"
                 alt="Weekly Fitness Contest"
                 fill
-                className="object-cover"
+                className="object-cover object-bottom"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
@@ -98,7 +98,7 @@ export default function Contest() {
               Join Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Weekly Competition</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Challenge yourself and compete with fellow members. Track your progress on our dynamic leaderboard, earn exclusive rewards, and be part of an inspiring community that pushes each other to achieve greatness.
+              Challenge yourself and compete with fellow members. Track your progress unlock new personal bests, earn exclusive rewards and be part of an inspiring community that pushes each other to achieve greatness.
             </p>
 
             {/* Features Grid */}

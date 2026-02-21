@@ -68,7 +68,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             {/* Standalone Logo */}
             <img
-              src="/White_Logo.JPG.png"
+              src="/Black_Logo.JPG.png"
               alt="Fitness Plus Logo"
               className="h-14 w-auto sm:h-16 md:h-18 object-contain"
             />

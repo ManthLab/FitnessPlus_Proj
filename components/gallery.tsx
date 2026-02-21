@@ -40,20 +40,14 @@ export default function Gallery() {
     {
       type: "image",
       src: "/Collage_2.png",
-      alt: "Group training session",
-      title: "Success Stories",
+      alt: "Fitness Enthusiasts",
+      title: "Fitness Enthusiasts",
     },
     {
       type: "video",
       src: "/Trainers_edited.mp4",
-      alt: "Strength training area",
-      title: "Weight Room",
-    },
-    {
-      type: "image",
-      src: "/Leg_press.jpeg",
-      alt: "Member transformation",
-      title: "Success Stories",
+      alt: "Elevate Your Training",
+      title: "Where Strength Meets Guidance",
     },
     {
       type: "video",
@@ -72,6 +66,12 @@ export default function Gallery() {
       src: "/Cardio_audio.mp4",
       alt: "Cardio section",
       title: "Cardio Area",
+    },
+    {
+      type: "image",
+      src: "/2_crop_Transform.jpeg",
+      alt: "Transformations",
+      title: "Success Stories",
     },
     {
       type: "video",

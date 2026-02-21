@@ -31,7 +31,7 @@ export default function About() {
 
   const stats = [
     { icon: UserCheck, label: 'Active Members', value: '1500+' },
-    { icon: Layers, label: 'Equipment Pieces', value: '200+' },
+    { icon: Layers, label: 'Equipment Pieces', value: '150+' },
     { icon: BadgeCheck, label: 'Success Rate', value: '90%' },
   ];
 

@@ -9,6 +9,7 @@ import Gallery from '@/components/gallery';
 import Contact from '@/components/contact';
 import Footer from '@/components/footer';
 import Gall from '@/components/gallery2';
+import Foot from '@/components/footer2';
 
 export default function Home() {
   return (
@@ -17,8 +18,8 @@ export default function Home() {
       <Hero />
       <About />
       <Services />
-      <Contest />
       <Pricing />
+      <Contest />
       <Gallery />
       <Contact />
       <Footer />
