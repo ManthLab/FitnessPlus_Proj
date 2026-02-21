@@ -40,7 +40,7 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
-  console.log("Sending form data:", formData);
+  // console.log("Sending form data:", formData);
 
   try {
     const res = await fetch("/api/contact", {
