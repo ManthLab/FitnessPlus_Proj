@@ -34,36 +34,6 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          {/* <span className="flex-shrink-0 flex items-center gap-2 hover:opacity-80 transition-opacity">
-           <img
-              src="/White_Logo.JPG.png"
-              alt="Fitness Plus Logo"
-              className="h-10 w-auto sm:h-14"
-            />
-          <span className="text-sm text-muted-foreground">FITNESS</span>
-            <div className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              PLUS
-            </div>
-          </span>  */}
-
-          {/* <span className="flex-shrink-0 flex items-center gap-3 hover:opacity-80 transition-opacity">
-            
-            <img
-              src="/White_Logo.JPG.png"
-              alt="Fitness Plus Logo"
-              className="h-10 w-auto sm:h-14"
-            />
-
-            
-            <div className="flex flex-col leading-tight">
-              <span className="text-xs sm:text-sm text-muted-foreground tracking-wider">
-                FITNESS
-              </span>
-              <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                PLUS
-              </span>
-            </div>
-          </span> */}
 
           <div className="flex items-center gap-4">
             {/* Standalone Logo */}
